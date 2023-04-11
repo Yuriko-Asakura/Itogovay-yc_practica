@@ -1,0 +1,52 @@
+﻿<Window x:Class="itog_yc_proect.Доктор.zap"
+          xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:itog_yc_proect.Sotrudniki.Запись"
+        mc:Ignorable="d"
+        Title="data" Height="450" Width="800">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFE8ADFF"/>
+                <GradientStop Color="#FFE8CFF1" Offset="0.944"/>
+                <GradientStop Color="#FFB85CDC" Offset="0.506"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <DataGrid x:Name="spisok" ItemsSource="{Binding Users}" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.ColumnSpan="4" Margin="57,43,0,10" Grid.RowSpan="4"/>
+        <TextBox x:Name="date" Text="{Binding Path=SelectedItem.Дата, ElementName=spisok}" Grid.ColumnSpan="2" materialDesign:HintAssist.Hint="Дата" HorizontalAlignment="Left" Margin="43,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="144" Grid.Row="4" Height="33" Background="White"/>
+        <TextBox x:Name="vrema" Text="{Binding Path=SelectedItem.Время, ElementName=spisok}"  Grid.ColumnSpan="3" materialDesign:HintAssist.Hint="Время" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="144" Grid.Row="4" Height="33" Background="White" Grid.Column="1" Margin="101,0,0,0"/>
+        <ComboBox x:Name="cab" Grid.Column="3" HorizontalAlignment="Left" materialDesign:HintAssist.Hint="Кабинет" Margin="43,0,0,0" Grid.Row="4" Width="94" Background="White" Grid.ColumnSpan="2">
+            <TextBlock>101</TextBlock>
+            <TextBlock>109</TextBlock>
+            <TextBlock>110</TextBlock>
+            <TextBlock>116</TextBlock>
+            <TextBlock>102</TextBlock>
+            <TextBlock>106</TextBlock>
+            <TextBlock>108</TextBlock>
+            <TextBlock>113</TextBlock>
+        </ComboBox>
+        <Button x:Name="dob" Grid.Column="4" Content="Добавить" HorizontalAlignment="Left" Margin="114,65,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Grid.ColumnSpan="3" Height="40" Width="153" Click="dob_Click"/>
+        <Button x:Name="del" Grid.Column="4" Content="Удалить" HorizontalAlignment="Left" Margin="114,37,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3" Height="40" Width="153" Grid.Row="1" Click="del_Click"/>
+        <Button x:Name="izm" Grid.Column="4" Content="Изменить" HorizontalAlignment="Left" Margin="114,10,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3" Height="40" Width="153" Grid.Row="2" Cursor="Hand" Click="izm_Click"/>
+        <Button x:Name="nazad" Grid.Column="4" Content="Вернуться назад" HorizontalAlignment="Left" Margin="114,4,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3" Height="40" Width="153" Grid.Row="3" Click="nazad_Click"/>
+    </Grid>
+</Window>
